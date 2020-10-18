@@ -4,17 +4,11 @@ import matplotlib.pyplot as plt
 
 data = pd.read_csv("BreadBasket_DMS.csv")
 
-data = data[data.Item != 'NONE']
-plt.figure(4, figsize=(7, 7))
+# Question 1
 print("Frequency of top 10 selling items...")
-print(data['Item'].value_counts().head(10)) # Question 1
+myList = [data['Item'].value_counts().head(10)]
+print(data['Item'].value_counts().head(10))
 plt.show()
-data = data.drop(['Time'], axis=1)
-data.Date = pd.to_datetime(data.Date)      # Question 2 and 3
-data = data[data.Date > '2016-12-31']      # Question 2 and 3
-
-print("      Five most popular bakery items in 2017...")
-print(data.sort_values("Transaction", ascending=False).head(5))
 
 # Quesiton 2:
 
